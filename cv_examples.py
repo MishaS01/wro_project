@@ -44,7 +44,7 @@ red_hsv_max2 = (10,255,255)
 
 #apply Threshold
 
-color = 'gteen'
+color = 'red'
 if (color == 'green'):
 	thresh = cv2.inRange(hsv, green_hsv_min, green_hsv_max)
 	show_image('green', thresh)
