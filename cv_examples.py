@@ -33,16 +33,17 @@ hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 #green
 green_hsv_min = (50,0,0)
-green_hsv_max = (100,255,255)
+green_hsv_max = (60,255,255)
 
 #red
-red_hsv_min1 = (0,0,0)
+red_hsv_min1 = (0,100,0)
 red_hsv_max1 = (10,255,255)
 
-red_hsv_min2 = (0,0,0)
-red_hsv_max2 = (10,255,255)
+red_hsv_min2 = (170,100,0)
+red_hsv_max2 = (170,255,255)
 
 #apply Threshold
+
 
 color = 'red'
 if (color == 'green'):

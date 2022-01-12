@@ -4,7 +4,7 @@ cap = cv2.VideoCapture('output.avi')
 while True:
     ret, frame = cap.read()
     cv2.imshow('video_feed', frame)
-    if cv2.waitKey(100) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 out.release()
