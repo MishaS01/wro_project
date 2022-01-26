@@ -1,4 +1,5 @@
 import cv2
+import time
 cap = cv2.VideoCapture(0)
 
 def show_image(filename, img):
@@ -15,19 +16,16 @@ red_hsv_max1 = (10,255,255)
 red_hsv_min2 = (170,100,0)
 red_hsv_max2 = (170,255,255)
 
-color = 'red'
-
-
 while True:
     ret, frame = cap.read()
-
+    start_time = time.process_time()
     #hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    if (color == 'green'):
     	thresh = cv2.inRange(hsv, green_hsv_min, green_hsv_max)
-    elif (color == 'red'):
+
         thresh1 = cv2.inRange(hsv, red_hsv_min1, red_hsv_max1)
         thresh2 = cv2.inRange(hsv, red_hsv_min2, red_hsv_max2)
+
         thresh=thresh1+thresh2
 
     # filtering
@@ -45,7 +43,7 @@ while True:
     cv2.imshow('video_feed', erode_img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+    print(1 / (time.process_time() - start_time), 'FPS')
 
-
-out.release()
+cap.release()
 cv2.destroyAllWindows()
